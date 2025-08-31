@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio</title>
+  <meta name="description" content="Personal portfolio - HTML CSS JS single file template" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css" />
+    
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RM</div>
+        <div>
+          <div style="font-weight:700">Rakhi Mishra</div>
+          <div class="muted" style="font-size:13px">Web Developer • HTML/CSS/JS</div>
+        </div>
+      </div>
+      <nav>
+        <a class="navlink" href="#about">About</a>
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#skills">Skills</a>
+        <a class="navlink" href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire me</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card">
+          <h1>Hi, I'm Rakhi 👋</h1>
+          <p class="lead">Front-end focused web developer building responsive and accessible websites using HTML, CSS, and JavaScript.
+          I turn ideas into clean, interactive user experiences.</p>
+
+          <div style="margin-top:18px" class="row">
+            <a class="navlink" href="#projects">See my work</a>
+            <a class="navlink" href="#contact">Get in touch</a>
+            <a class="navlink" href="resume.pdf" download>Download Resume</a>
+          </div>
+
+          <section id="about" style="margin-top:18px">
+            <h3>About</h3>
+            <p class="muted">I build responsive, user-friendly websites. I enjoy turning complex problems into simple, beautiful interfaces. I'm currently working with HTML, CSS (Flexbox & Grid) and Vanilla JS.</p>
+          </section>
+
+          <section id="skills" style="margin-top:14px">
+            <h3>Skills</h3>
+            <div class="skills">
+              <div class="skill">HTML5</div>
+              <div class="skill">CSS3</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">Responsive Design</div>
+              <div class="skill">Git</div>
+              <div class="skill">VS Code</div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="card hero-img">
+          <!-- Placeholder for profile picture or illustration -->
+          <div style="text-align:center;padding:18px">
+            <div style="width:120px;height:120px;border-radius:999px;background:linear-gradient(135deg,#0ea5a4,#7c3aed);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:28px">
+            <img src="r.jpg"style="width:120px;height:120px;border-radius:999px;"></div>
+            <div style="margin-top:12px" class="muted">Based in India • Open to work</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects" class="card" style="margin-top:22px">
+        <h2>Projects</h2>
+        <p class="muted">Selected projects — click to view details</p>
+
+        <div class="projects-grid" style="margin-top:12px">
+          <article class="project" tabindex="0" data-title="Portfolio Website" data-desc="Single-page responsive portfolio using HTML/CSS/JS. Includes animations and contact form.">
+            <h3>Portfolio Website</h3>
+            <p>Single-page responsive portfolio with project gallery and contact form.</p>
+            <div style="margin-top:10px"><a href="#" onclick="openModal(event,this)">View details</a></div>
+          </article>
+
+          <article class="project" tabindex="0" data-title="ToDo App" data-desc="Vanilla JS ToDo app with localStorage.">
+            <h3>ToDo App</h3>
+            <p>Minimal ToDo app using localStorage to persist tasks.</p>
+            <div style="margin-top:10px"><a href="#" onclick="openModal(event,this)">View details</a></div>
+          </article>
+
+          <article class="project" tabindex="0" data-title="E‑Commerce UI" data-desc="Static e‑commerce product grid with filters (HTML/CSS).">
+            <h3>E‑Commerce UI</h3>
+            <p>Responsive product grid with hover states and filters.</p>
+            <div style="margin-top:10px"><a href="#" onclick="openModal(event,this)">View details</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:18px">
+        <h2>Contact</h2>
+        <p class="muted">Send me a message — I'll reply within a few days.</p>
+        <form onsubmit="submitForm(event)">
+          <input id="name" placeholder="Your name" required />
+          <input id="email" type="email" placeholder="Your email" required />
+          <textarea id="message" rows="4" placeholder="Message" required></textarea>
+          <div style="display:flex;gap:10px">
+            <button type="submit" style="background:var(--accent);color:#042f35">Send</button>
+            <button type="button" onclick="location.href='mailto:youremail@example.com'">Email me</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Rakhi Mishra — Built with HTML • CSS • JS</div>
+    </footer>
+  </div>
+
+  <!-- Modal (project details) -->
+  <div id="modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px">
+    <div style="max-width:700px;width:100%" class="card">
+      <button onclick="closeModal()" style="float:right;background:transparent;border:0;color:var(--muted);font-weight:700">✕</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc" class="muted"></p>
+      <div style="margin-top:12px">
+        <a href="#" class="navlink">Live demo</a>
+        <a href="#" class="navlink">Source code</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"> </script>
+</body>
+</html>
