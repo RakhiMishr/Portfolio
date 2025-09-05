@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Commerce UI – Vanilla</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/section.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>   <!-- ✅ FIXED -->
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="logo"><div class="logo-badge"></div><span>ShopSphere</span></div>
+        
+        <div class="search">
+          <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input id="search" placeholder="Search for products, brands and more" />
+        </div>
+        
+        <div class="actions">
+          <button id="themeBtn" class="icon-btn" title="Toggle theme">🌓</button>
+          <button id="cartBtn" class="icon-btn" style="position:relative" title="Cart">
+            🛒<span id="cartBadge" class="badge hidden">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="catbar">
+      <div class="container" style="display:flex;gap:12px;align-items:center">
+        <div id="cats" class="cats"></div>
+        <div class="sort" style="margin-left:auto">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="2" style="opacity:.6">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+          <select id="sort">
+            <option value="popular">Most popular</option>
+            <option value="price_low">Price: Low to High</option>
+            <option value="price_high">Price: High to Low</option>
+            <option value="rating">Top rated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="card promo">
+      <h2>Mega Electronics Sale</h2>
+      <p class="muted">Up to 50% off • Free shipping above ₹999</p>
+      <button class="btn" onclick="window.scrollTo({top:document.querySelector('#grid').offsetTop-80,behavior:'smooth'})">
+        Shop now →
+      </button>
+    </div>
+    <div class="card thumbs">
+      <div class="row" style="justify-content:space-between">
+        <strong>New Arrivals</strong>
+        <span class="muted" style="font-size:12px">Fresh drops</span>
+      </div>
+      <div class="thumbs-grid" id="thumbs"></div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <main class="grid" id="grid"></main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot">
+      <div>
+        <div class="logo"><div class="logo-badge" style="width:28px;height:28px"></div><span>ShopSphere</span></div>
+        <p class="muted">Quality products. Fast delivery. Great prices.</p>
+      </div>
+      <div><strong>Company</strong><div class="muted">About<br/>Careers<br/>Press</div></div>
+      <div><strong>Support</strong><div class="muted">Contact<br/>Shipping<br/>Returns</div></div>
+      <div><strong>Legal</strong><div class="muted">Privacy<br/>Terms<br/>Refund policy</div></div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div id="cartOverlay" class="overlay">
+    <aside class="drawer">
+      <div class="drawer-head">
+        <strong>Your Cart (<span id="cartCount">0</span>)</strong>
+        <button class="close" id="closeCart">✕</button>
+      </div>
+      <div class="drawer-body" id="cartItems"></div>
+      <div class="drawer-foot">
+        <div style="display:flex;justify-content:space-between;width:100%">
+          <strong>Total</strong>
+          <strong id="cartTotal">₹0</strong>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Details Modal -->
+  <div id="detailModal" class="modal">
+    <div class="modal-card card">
+      <div class="modal-img"><img id="dImg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="modal-body">
+        <div class="row" style="justify-content:space-between;align-items:start">
+          <div>
+            <h3 id="dTitle" style="margin:0"></h3>
+            <div id="dRating" class="rate"></div>
+            <div id="dTags" class="tags" style="margin-top:8px"></div>
+          </div>
+          <div style="text-align:right">
+            <div id="dPrice" style="font-size:22px;font-weight:800"></div>
+            <div class="muted" style="font-size:12px">Inclusive of all taxes</div>
+          </div>
+        </div>
+        <p id="dDesc" class="muted" style="margin:10px 0 0"></p>
+        <div class="btn-row" style="margin-top:14px">
+          <button id="dAdd" class="btn">Add to cart</button>
+          <button id="dBuy" class="btn outline">Buy now</button>
+          <div style="margin-left:auto"><button id="dClose" class="close">Close</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/Data.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/detail_modal.js"></script>
+  <script src="js/boot.js"></script>
+</body>
+</html>
